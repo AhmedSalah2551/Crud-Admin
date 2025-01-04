@@ -1,0 +1,40 @@
+<div class="login d-flex justify-content-center align-items-center m-auto p-4">
+    <div>
+        <div>
+        <div class="d-flex align-items-center justify-content-center w-100">
+            <div class="box w-100">
+                <h2>{{'login.Register'|translate}} </h2>
+                <form [formGroup]="registerForm">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>{{'login.Username'|translate}}</mat-label>
+                        <input matInput  placeholder="username" formControlName="username">
+                        <mat-error>{{'login.Required'|translate}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>{{'login.Email'|translate}}</mat-label>
+                        <input matInput  placeholder="email" formControlName="email">
+                        <mat-error>{{'login.Required'|translate}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>{{'login.Password'|translate}}</mat-label>
+                        <input matInput type="password" placeholder="password" formControlName="password">
+                        <mat-error>{{'login.REquired'|translate}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>{{'login.Confirm'|translate}}</mat-label>
+                        <input matInput  type="password" placeholder="confirm password" formControlName="confirmPass">
+                        <mat-error>{{'login.Required'|translate}}</mat-error>
+                        <mat-hint *ngIf="registerForm.hasError('notmatched')">password not matched</mat-hint>
+                    </mat-form-field>
+                </form>
+                <div class="d-flex justify-content-center">
+                    <button mat-raised-button color="warn"[disabled]="registerForm.invalid" (click)="register()">{{'login.Register'|translate}}</button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a routerLink="/auth/login">{{'login.HaveAcount'|translate}} </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
